@@ -29,29 +29,6 @@ body {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
 }
-
-h1,
-h2,
-h3 {
-  font-family: sofia-pro, sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-h1 {
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: -1px;
-  line-height: 1.2;
-  text-align: center;
-  margin: 100px 0 40px;
-}
-
-h2 {
-  font-weight: 400;
-  margin: 50px 0 10px;
-}
-
 ::-webkit-scrollbar {
   height: 5px;
   width: 5px;
@@ -60,16 +37,12 @@ h2 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent);
+  background: #ccc;
   -webkit-border-radius: 1ex;
 }
 
 ::-webkit-scrollbar-corner {
   background: #fff3;
-}
-
-input {
-  accent-color: var(--accent);
 }
 
 label {
@@ -81,19 +54,6 @@ label {
 label code {
   width: 100px;
 }
-
-input[type='number'] {
-  border: 0;
-  border-bottom: 1px dotted var(--accent);
-  color: var(--accent);
-  margin-left: 10px;
-}
-
-input[type='number']:focus {
-  outline: none;
-  border-bottom: 2px solid var(--accent);
-}
-
 input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
