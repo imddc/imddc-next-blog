@@ -8,8 +8,8 @@ export const links = [
     hash: '#experience'
   },
   {
-    name: 'skill',
-    hash: '#skill'
+    name: 'skills',
+    hash: '#skills'
   },
   {
     name: 'hobby',
