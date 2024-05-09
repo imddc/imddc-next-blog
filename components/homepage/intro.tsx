@@ -19,7 +19,7 @@ const Intro = () => {
     <motion.section
       id="intro"
       {...popUp}
-      className="max-w-[56rem] mx-auto mb-28 text-center pt-28 px-4"
+      className="max-w-[56rem] mx-auto mb-28 text-center pt-28 px-4 scroll-mt-28"
     >
       <header className="flex-center mb-10 w-fit mx-auto relative ">
         <Image

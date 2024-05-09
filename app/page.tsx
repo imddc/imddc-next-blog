@@ -7,9 +7,9 @@ export default function RootPage() {
   return (
     <>
       <Intro />
-      <Posts />
-      <Projects />
       <Skills />
+      <Projects />
+      <Posts />
     </>
   )
 }

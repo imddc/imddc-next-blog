@@ -6,16 +6,16 @@ export const links = [
     hash: '#intro'
   },
   {
-    name: 'posts',
-    hash: '#posts'
+    name: 'skills',
+    hash: '#skills'
   },
   {
     name: 'projects',
     hash: '#projects'
   },
   {
-    name: 'skills',
-    hash: '#skills'
+    name: 'posts',
+    hash: '#posts'
   },
   {
     name: 'contact',

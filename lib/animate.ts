@@ -18,11 +18,11 @@ export const introAvatarHover: MotionProps = {
   transition: { duration: 0.7, stiffness: 125 }
 }
 
-export const popUp: AnimationProps = {
+export const popUp: MotionProps = {
   initial: { y: 100, opacity: 0 },
   animate: { y: 0, opacity: 1 }
 }
-export const popDown: AnimationProps = {
+export const popDown: MotionProps = {
   initial: { y: -100, opacity: 0 },
   animate: { y: 0, opacity: 1 }
 }

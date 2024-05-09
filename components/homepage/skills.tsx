@@ -9,7 +9,7 @@ const Skills = () => {
   return (
     <motion.section
       id="skills"
-      className="max-w-[56rem] mx-auto mb-20"
+      className="max-w-[56rem] mx-auto mb-28 scroll-mt-28"
       {...popUp}
     >
       <h2 className="section-title">My Skills</h2>
