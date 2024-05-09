@@ -7,6 +7,7 @@ import { skills } from '~/lib/data'
 const Skills = () => {
   return (
     <motion.section
+      id="skills"
       className="max-w-[56rem] mx-auto mb-10"
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
