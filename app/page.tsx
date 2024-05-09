@@ -1,5 +1,11 @@
-import Skills from '~/components/skills'
+import Intro from '~/components/homepage/intro'
+import Skills from '~/components/homepage/skills'
 
 export default function RootPage() {
-  return <Skills />
+  return (
+    <>
+      <Intro />
+      <Skills />
+    </>
+  )
 }

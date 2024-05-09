@@ -26,7 +26,7 @@ export default function RootLayout({
 
         <SectionContextProvider>
           <Header />
-          {children}
+          <main className="scroll-mt-20">{children}</main>
         </SectionContextProvider>
       </body>
     </html>
