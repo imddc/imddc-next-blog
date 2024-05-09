@@ -1,3 +1,5 @@
+import { Project } from './types'
+
 export const links = [
   {
     name: 'intro',
@@ -21,7 +23,7 @@ export const links = [
   }
 ] as const
 
-export const projects = [
+export const projects: Project[] = [
   {
     title: 'waterfall-vue',
     description: 'an easy to use waterfall component for vue3.',
