@@ -3,8 +3,9 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useRef } from 'react'
 import { FaGithub } from 'react-icons/fa'
+import { useSetHeaderInView } from '~/hooks/useSetHeaderInView'
 import { introAvatarHover, popUp } from '~/lib/animate'
 
 const socialLinks = [
@@ -15,9 +16,13 @@ const socialLinks = [
 ]
 
 const Intro = () => {
+  const ref = useRef(null)
+  useSetHeaderInView(ref, 'intro')
+
   return (
     <motion.section
       id="intro"
+      ref={ref}
       {...popUp}
       className="max-w-[56rem] mx-auto mb-28 text-center pt-28 px-4 scroll-mt-28"
     >

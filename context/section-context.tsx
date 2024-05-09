@@ -6,14 +6,15 @@ import React, {
   useContext,
   useState
 } from 'react'
-import { links } from '~/lib/data'
+import { LinkType } from '~/lib/types'
 
-type LinkType = (typeof links)[number]['name']
 type SectionContextType = {
   link: LinkType
+  time: number
 }
 type SectionDispatchContextType = {
   setLink: React.Dispatch<React.SetStateAction<LinkType>>
+  setTime: React.Dispatch<React.SetStateAction<number>>
 }
 
 const SectionContext = createContext<SectionContextType | null>(null)
@@ -23,10 +24,14 @@ const SectionDispatchContext = createContext<SectionDispatchContextType | null>(
 
 export const SectionContextProvider = ({ children }: PropsWithChildren) => {
   const [link, setLink] = useState<LinkType>('intro')
+  const [time, setTime] = useState(0)
+  const [linkRefs, setLinkRefs] = useState<React.RefObject<HTMLDivElement>[]>(
+    []
+  )
 
   return (
-    <SectionContext.Provider value={{ link }}>
-      <SectionDispatchContext.Provider value={{ setLink }}>
+    <SectionContext.Provider value={{ link, time }}>
+      <SectionDispatchContext.Provider value={{ setLink, setTime }}>
         {children}
       </SectionDispatchContext.Provider>
     </SectionContext.Provider>

@@ -1,8 +1,9 @@
 'use client'
 
-import { motion, useMotionValue, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useRef } from 'react'
+import { useSetHeaderInView } from '~/hooks/useSetHeaderInView'
 import { popUp } from '~/lib/animate'
 
 const createPost = (id: number) => {
@@ -21,9 +22,13 @@ const createPost = (id: number) => {
 const posts = Array.from({ length: 9 }).map((_, i) => createPost(i))
 
 const Posts = () => {
+  const ref = useRef(null)
+  useSetHeaderInView(ref, 'posts')
+
   return (
     <motion.section
       id="posts"
+      ref={ref}
       className="mb-28 relative overflow-hidden scroll-mt-28"
       {...popUp}
     >
@@ -80,7 +85,7 @@ const Posts = () => {
         </motion.div>
       </div>
 
-      <span className="absolute w-full inset-0 pointer-events-none bg-gradient-to-r from-gray-50 from-20% via-transparent to-gray-50 to-80%"></span>
+      <span className="absolute w-full inset-0 pointer-events-none bg-gradient-to-r from-gray-50 md:from-10% via-transparent to-gray-50 md:to-90%"></span>
     </motion.section>
   )
 }

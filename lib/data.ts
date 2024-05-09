@@ -16,10 +16,6 @@ export const links = [
   {
     name: 'posts',
     hash: '#posts'
-  },
-  {
-    name: 'contact',
-    hash: '#contact'
   }
 ] as const
 

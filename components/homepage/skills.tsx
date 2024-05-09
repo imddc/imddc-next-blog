@@ -1,14 +1,19 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import React from 'react'
+import { motion, useInView } from 'framer-motion'
+import React, { useEffect, useRef } from 'react'
+import { useSetHeaderInView } from '~/hooks/useSetHeaderInView'
 import { popUp, skillItemVariants } from '~/lib/animate'
 import { skills } from '~/lib/data'
 
 const Skills = () => {
+  const ref = useRef(null)
+  useSetHeaderInView(ref, 'skills')
+
   return (
     <motion.section
       id="skills"
+      ref={ref}
       className="max-w-[56rem] mx-auto mb-28 scroll-mt-28"
       {...popUp}
     >

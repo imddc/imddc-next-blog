@@ -11,6 +11,12 @@ import { links } from '~/lib/data'
 const Header = () => {
   const { sectionContext, sectionDispatchContext } = useSectionContext()
 
+  const setActiveSection = (section: (typeof links)[number]['name']) => {
+    if (sectionContext.link === section) return
+    sectionDispatchContext.setLink(section)
+    sectionDispatchContext.setTime(Date.now())
+  }
+
   return (
     <>
       <motion.div
@@ -36,14 +42,14 @@ const Header = () => {
                       sectionContext.link === link.name
                   }
                 )}
-                onClick={() => sectionDispatchContext.setLink(link.name)}
+                onClick={() => setActiveSection(link.name)}
               >
                 <span className="relative z-50">{link.name}</span>
                 {sectionContext.link === link.name && (
                   <motion.div
                     className={clsx(
                       'absolute inset-0 rounded-full',
-                      'bg-gray-100'
+                      'bg-white'
                     )}
                     {...headerActive('selectedId')}
                     {...popUp}
