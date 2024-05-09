@@ -13,3 +13,7 @@
 .flex-col-center {
   @apply flex flex-col items-center justify-center;
 }
+
+.section-title {
+  @apply text-3xl mb-10 text-center font-bold;
+}
