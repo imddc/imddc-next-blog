@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { FaGithub } from 'react-icons/fa'
-import { popUp } from '~/lib/animate'
+import { introAvatarHover, popUp } from '~/lib/animate'
 
 const socialLinks = [
   {
@@ -33,11 +33,7 @@ const Intro = () => {
 
         <motion.div
           className="absolute bottom-0 right-0 size-10 rounded-full text-3xl cursor-pointer select-none"
-          whileHover={{
-            rotate: 30,
-            scale: 1.4,
-            animationDuration: '0.5s'
-          }}
+          {...introAvatarHover}
         >
           👋🏻
         </motion.div>

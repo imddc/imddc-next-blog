@@ -1,5 +1,16 @@
 import { AnimationProps, MotionProps } from 'framer-motion'
 
+export const introAvatarHover: MotionProps = {
+  whileHover: {
+    rotate: 30,
+    scale: 1.4
+  },
+  transition: {
+    duration: 0.7,
+    stiffness: 125
+  }
+}
+
 export const popUp: AnimationProps = {
   initial: {
     y: 100,
