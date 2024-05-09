@@ -22,7 +22,7 @@ const SectionDispatchContext = createContext<SectionDispatchContextType | null>(
 )
 
 export const SectionContextProvider = ({ children }: PropsWithChildren) => {
-  const [link, setLink] = useState<LinkType>('home')
+  const [link, setLink] = useState<LinkType>('intro')
 
   return (
     <SectionContext.Provider value={{ link }}>
