@@ -26,7 +26,7 @@ const Project: React.FC<{ project: Project; idx: number }> = ({
         scale: scaleProgress,
         opacity: opacityProgress
       }}
-      className="flex rounded-xl bg-gray-100 border border-gray-200 mb-8 overflow-hidden group"
+      className="flex rounded-xl bg-gray-100/50 hover:bg-gray-200/50 border border-gray-200 mb-8 overflow-hidden group duration-500"
     >
       <div
         className={clsx('flex-1 py-10 px-7', isLeft(idx) ? 'pr-10' : 'pl-10')}
