@@ -2,8 +2,17 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
+import { FaGithub } from 'react-icons/fa'
 import { popUp } from '~/lib/animate'
+
+const socialLinks = [
+  {
+    href: 'https://github.com/imddc',
+    icon: <FaGithub size={26} />
+  }
+]
 
 const Intro = () => {
   return (
@@ -33,15 +42,30 @@ const Intro = () => {
           👋🏻
         </motion.div>
       </header>
-      <h1 className="text-2xl font-bold mb-3">Hi, I&apos;m DuC</h1>
 
-      <p>
-        this is a website that I made to practice my skills in web development.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque
-        voluptates quisquam, aperiam quasi tempora fuga. Quidem praesentium odit
-        eos! Dolor, quod? Cupiditate, aspernatur minus! Doloribus, non fugit.
-        Doloribus, quod suscipit!
-      </p>
+      <section className="mb-10">
+        <h1 className="text-2xl font-bold mb-3">Hi, I&apos;m DuC</h1>
+        <p>
+          this is a website that I made to practice my skills in web
+          development. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Itaque voluptates quisquam, aperiam quasi tempora fuga. Quidem
+          praesentium odit eos! Dolor, quod? Cupiditate, aspernatur minus!
+          Doloribus, non fugit. Doloribus, quod suscipit!
+        </p>
+      </section>
+
+      <section className="flex-center gap-4">
+        {socialLinks.map((link) => (
+          <Link
+            key={link.href}
+            className="size-12 flex-center bg-gray-100 rounded-full"
+            href={link.href}
+            target="_blank"
+          >
+            {link.icon}
+          </Link>
+        ))}
+      </section>
     </motion.section>
   )
 }
