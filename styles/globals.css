@@ -21,6 +21,7 @@ body {
   padding: 0;
   /* background-color: var(--a h-black); */
   background-color: var(--white);
+  min-height: 100vh;
 }
 
 * {

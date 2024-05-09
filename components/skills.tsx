@@ -1,51 +1,25 @@
+'use client'
+
 import { clsx } from 'clsx'
 import React, { useEffect } from 'react'
-import { useSectionContext } from '~/context/section-context'
-
-const sections = ['blog', 'about', 'post', 'panda', 'address']
+import { skills } from '~/lib/data'
 
 const Skills = () => {
-  const { sectionDispatchContext } = useSectionContext()
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        console.log(entry.target.id)
-        if (entry.target.id === 'post') {
-          sectionDispatchContext.setLink('hobby')
-        } else if (entry.target.id === 'about') {
-          sectionDispatchContext.setLink('skills')
-        } else {
-          return
-        }
-      }
-    })
-  })
-
-  useEffect(() => {
-    const dom = document.getElementById('post')
-    dom && observer.observe(dom)
-  }, [])
-
-  useEffect(() => {
-    const dom = document.getElementById('about')
-    dom && observer.observe(dom)
-  }, [])
-
   return (
-    <div>
-      {sections.map((section, idx) => (
-        <div
-          id={section}
-          key={section}
-          className={clsx('h-screen border-b-2', {
-            'bg-red-500': idx === 2
-          })}
-        >
-          {section}
-        </div>
-      ))}
-    </div>
+    <section className="max-w-[56rem] mx-auto mb-10">
+      <h2 className="text-3xl mb-10 text-center">My Skills</h2>
+
+      <main className="flex-center flex-wrap gap-4">
+        {skills.map((skill) => (
+          <span
+            className="p-4 py-2 border border-white border-opacity-40 bg-white rounded-md cursor-pointer"
+            key={skill}
+          >
+            {skill}
+          </span>
+        ))}
+      </main>
+    </section>
   )
 }
 
