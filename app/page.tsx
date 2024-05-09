@@ -1,9 +1,5 @@
 import Skills from '~/components/skills'
 
 export default function RootPage() {
-  return (
-    <div>
-      <Skills />
-    </div>
-  )
+  return <Skills />
 }
