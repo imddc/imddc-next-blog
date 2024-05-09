@@ -28,7 +28,9 @@ const Project: React.FC<{ project: Project; idx: number }> = ({
       }}
       className="flex rounded-xl bg-gray-100 border border-gray-200 mb-8 overflow-hidden group"
     >
-      <div className="flex-1 py-10 px-7">
+      <div
+        className={clsx('flex-1 py-10 px-7', isLeft(idx) ? 'pr-10' : 'pl-10')}
+      >
         <header className="flex items-center gap-4 text-2xl mb-5">
           <span className="hover:underline cursor-pointer">
             {project.title}
@@ -41,7 +43,16 @@ const Project: React.FC<{ project: Project; idx: number }> = ({
           </Link>
         </header>
 
-        <div className="flex-1 mb-5 min-h-[20rem]">{project.description}</div>
+        <div className="flex-1 mb-5 min-h-[15rem]">
+          {project.description}
+          <br />
+          ---
+          <br />
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis dicta
+          accusamus doloribus voluptate beatae debitis molestias quibusdam sint
+          illum eos doloremque soluta nihil impedit, similique nostrum officia
+          quia quisquam tenetur.
+        </div>
 
         <div>
           {project.tags.map((tag) => (
@@ -54,6 +65,7 @@ const Project: React.FC<{ project: Project; idx: number }> = ({
           ))}
         </div>
       </div>
+
       <div
         className={clsx('flex-1 relative', isLeft(idx) ? 'order-first' : '')}
       >

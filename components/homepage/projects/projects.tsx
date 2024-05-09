@@ -11,7 +11,7 @@ const Projects = () => {
   return (
     <motion.section
       id="projects"
-      className="max-w-[56rem] mx-auto mb-28"
+      className="max-w-[48rem] mx-auto mb-28"
       {...popUp}
     >
       <h1 className="section-title">My Projects</h1>
