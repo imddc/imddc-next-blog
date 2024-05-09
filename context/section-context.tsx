@@ -1,10 +1,11 @@
+'use client'
+
 import React, {
   createContext,
   PropsWithChildren,
   useContext,
   useState
 } from 'react'
-
 import { links } from '~/lib/data'
 
 type LinkType = (typeof links)[number]['name']

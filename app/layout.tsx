@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Header from '~/components/header'
+import { SectionContextProvider } from '~/context/section-context'
 
 import '~/styles/globals.css'
 
@@ -18,7 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
-        <>{children}</>
+        <SectionContextProvider>
+          <Header />
+          {children}
+        </SectionContextProvider>
       </body>
     </html>
   )
