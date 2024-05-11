@@ -46,15 +46,13 @@ body {
   background: #fff3;
 }
 
-label {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
+/* View Transitions */
+::view-transition-image-pair(root) {
+  isolation: auto;
 }
-
-label code {
-  width: 100px;
-}
-input[type='number']::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+  display: block;
 }

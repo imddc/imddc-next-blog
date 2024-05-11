@@ -25,9 +25,6 @@ const SectionDispatchContext = createContext<SectionDispatchContextType | null>(
 export const SectionContextProvider = ({ children }: PropsWithChildren) => {
   const [link, setLink] = useState<LinkType>('intro')
   const [time, setTime] = useState(0)
-  const [linkRefs, setLinkRefs] = useState<React.RefObject<HTMLDivElement>[]>(
-    []
-  )
 
   return (
     <SectionContext.Provider value={{ link, time }}>

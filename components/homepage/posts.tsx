@@ -57,7 +57,7 @@ const Posts = () => {
               ></div>
               {post.tags.map((tag) => (
                 <Link
-                  href={'javascript:void(0)'}
+                  href={'*'}
                   key={tag}
                   className="mr-2 text-sm"
                 >
@@ -73,7 +73,7 @@ const Posts = () => {
               </p>
 
               <Link
-                href={'javascript:void(0)'}
+                href={'*'}
                 className="absolute bottom-0 right-3 group-hover:bottom-3 opacity-0 group-hover:opacity-100 rounded-full px-2 duration-700"
               >
                 <span className="border-2 border-gray-200 rounded-full px-2 py-1 hover:border-2 ">
