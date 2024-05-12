@@ -1,4 +1,5 @@
-import { links } from '~/lib/data'
+import { z } from 'zod'
+import { links, skills } from '~/lib/data'
 
 export interface Project {
   title: string

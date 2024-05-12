@@ -14,7 +14,7 @@ const createPost = (id: number) => {
       'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit fugit quaerat cum, unde fuga suscipit repellat, velit in quas nesciunt minima asperiores, ex aspernatur neque ratione eaque culpa est obcaecati.' +
       id,
     color: '#f86',
-    link: 'link' + id,
+    link: '/post/' + id,
     tags: [
       {
         name: 'tag' + id,

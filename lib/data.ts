@@ -71,4 +71,17 @@ export const skills = [
   'Nest',
   'MySQL',
   'NeoVim'
-]
+] as const
+
+// link to post - tag
+export const postType = [
+  'vue',
+  'react',
+  'vite',
+  'next',
+  'typescript',
+  'javascript',
+  'css',
+  'git',
+  'other'
+] as const
