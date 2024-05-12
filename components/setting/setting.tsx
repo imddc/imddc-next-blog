@@ -6,7 +6,7 @@ import SettingTheme from './theme'
 
 const Setting = () => {
   return (
-    <div className="fixed bottom-4 right-4 flex-col-center">
+    <div className="flex-col-center fixed bottom-4 right-4">
       <SettingTheme />
     </div>
   )

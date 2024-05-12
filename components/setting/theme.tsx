@@ -14,7 +14,7 @@ const SettingTheme = () => {
   return (
     <>
       <button
-        className="flex-center size-10 bg-gray-500/50 hover:bg-gray-400/50 rounded-md duration-300"
+        className="flex-center size-10 rounded-md bg-gray-300/50 backdrop-blur-md dark:bg-gray-300/50"
         onClick={handleToggleDarkMode}
       >
         {themeContext.theme === Theme.dark ? (
