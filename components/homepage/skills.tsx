@@ -14,7 +14,7 @@ const Skills = () => {
     <motion.section
       id="skills"
       ref={ref}
-      className="max-w-[56rem] mx-auto mb-28 scroll-mt-28"
+      className="mx-auto mb-28 max-w-4xl scroll-mt-28"
       {...popUp}
     >
       <h2 className="section-title">My Skills</h2>
@@ -23,7 +23,7 @@ const Skills = () => {
         {skills.map((skill, idx) => (
           <motion.span
             key={skill}
-            className="p-4 py-2 border border-white border-opacity-40 bg-white rounded-md cursor-pointer"
+            className="cursor-pointer rounded-md border border-gray-50 bg-gray-50 p-4 py-2 dark:border-gray-900/40 dark:bg-gray-600/50"
             {...skillItemVariants(idx)}
           >
             {skill}
