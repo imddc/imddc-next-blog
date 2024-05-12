@@ -26,13 +26,13 @@ const Project: React.FC<{ project: Project; idx: number }> = ({
         scale: scaleProgress,
         opacity: opacityProgress
       }}
-      className="flex rounded-xl bg-gray-100/50 hover:bg-gray-200/50 border border-gray-200 mb-8 overflow-hidden group duration-500"
+      className="group mb-8 flex overflow-hidden rounded-xl border border-gray-200 bg-gray-200/50 duration-500 hover:bg-gray-300/50 dark:border-gray-800 dark:bg-gray-800/50 dark:hover:bg-gray-700/50"
     >
       <div
-        className={clsx('flex-1 py-10 px-7', isLeft(idx) ? 'pr-10' : 'pl-10')}
+        className={clsx('flex-1 px-7 py-10', isLeft(idx) ? 'pr-10' : 'pl-10')}
       >
-        <header className="flex items-center gap-4 text-2xl mb-5">
-          <span className="hover:underline cursor-pointer">
+        <header className="mb-5 flex items-center gap-4 text-2xl">
+          <span className="cursor-pointer hover:underline">
             {project.title}
           </span>
           <Link href={project.links.github} target="_blank">
@@ -43,22 +43,13 @@ const Project: React.FC<{ project: Project; idx: number }> = ({
           </Link>
         </header>
 
-        <div className="flex-1 mb-5 min-h-[15rem]">
-          {project.description}
-          <br />
-          ---
-          <br />
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis dicta
-          accusamus doloribus voluptate beatae debitis molestias quibusdam sint
-          illum eos doloremque soluta nihil impedit, similique nostrum officia
-          quia quisquam tenetur.
-        </div>
+        <div className="mb-5 min-h-60 flex-1">{project.description}</div>
 
         <div>
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="mr-2 px-2 py-1 rounded-full bg-gray-800 text-gray-200 text-sm cursor-pointer"
+              className="mr-2 cursor-pointer rounded-full bg-gray-800 px-2 py-1 text-center text-xs text-gray-200 transition-colors duration-500 hover:bg-gray-600 dark:bg-gray-700/50 dark:text-gray-50"
             >
               {tag}
             </span>
@@ -67,11 +58,11 @@ const Project: React.FC<{ project: Project; idx: number }> = ({
       </div>
 
       <div
-        className={clsx('flex-1 relative', isLeft(idx) ? 'order-first' : '')}
+        className={clsx('relative flex-1', isLeft(idx) ? 'order-first' : '')}
       >
         <div
           className={clsx(
-            'w-[120%] h-[120%] bg-gray-500 absolute top-16 rounded-xl transition duration-500 shadow-2xl',
+            'absolute top-16 size-[120%] rounded-xl bg-gray-500 shadow-2xl transition duration-500',
             isLeft(idx)
               ? 'right-10 group-hover:rotate-6'
               : 'left-10 group-hover:-rotate-6'
