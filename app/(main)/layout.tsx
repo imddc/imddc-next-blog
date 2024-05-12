@@ -26,7 +26,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className={clsx(
           inter.className,
-          'relative bg-gray-100 dark:bg-gray-900 dark:text-gray-50/90'
+          'relative bg-gray-100 transition-colors dark:bg-gray-900 dark:text-gray-50/90'
         )}
       >
         <ThemeContextProvider>

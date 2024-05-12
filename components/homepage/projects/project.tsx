@@ -26,12 +26,12 @@ const Project: React.FC<{ project: Project; idx: number }> = ({
         scale: scaleProgress,
         opacity: opacityProgress
       }}
-      className="group mb-8 flex overflow-hidden rounded-xl border border-gray-200 bg-gray-200/50 duration-500 hover:bg-gray-300/50 dark:border-gray-800 dark:bg-gray-800/50 dark:hover:bg-gray-700/50"
+      className="group mb-8 flex overflow-hidden rounded-xl border border-gray-200 bg-gray-200/50 transition-colors hover:bg-gray-300/50 dark:border-gray-800 dark:bg-gray-800/50 dark:hover:bg-gray-700/50"
     >
       <div
         className={clsx('flex-1 px-7 py-10', isLeft(idx) ? 'pr-10' : 'pl-10')}
       >
-        <header className="mb-5 flex items-center gap-4 text-2xl">
+        <header className="mb-5 flex items-center gap-4 text-xl">
           <span className="cursor-pointer hover:underline">
             {project.title}
           </span>
@@ -42,9 +42,7 @@ const Project: React.FC<{ project: Project; idx: number }> = ({
             <FaLink />
           </Link>
         </header>
-
-        <div className="mb-5 min-h-60 flex-1">{project.description}</div>
-
+        <div className="mb-5 flex-1 md:min-h-60">{project.description}</div>
         <div>
           {project.tags.map((tag) => (
             <span
@@ -57,12 +55,16 @@ const Project: React.FC<{ project: Project; idx: number }> = ({
         </div>
       </div>
 
+      {/* right */}
       <div
-        className={clsx('relative flex-1', isLeft(idx) ? 'order-first' : '')}
+        className={clsx(
+          'relative hidden flex-1 md:block',
+          isLeft(idx) && 'order-first'
+        )}
       >
         <div
           className={clsx(
-            'absolute top-16 size-[120%] rounded-xl bg-gray-500 shadow-2xl transition duration-500',
+            'absolute top-16 size-[120%] rounded-xl bg-gray-500 shadow-2xl duration-500',
             isLeft(idx)
               ? 'right-10 group-hover:rotate-6'
               : 'left-10 group-hover:-rotate-6'

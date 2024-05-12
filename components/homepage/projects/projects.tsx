@@ -16,11 +16,11 @@ const Projects = () => {
     <motion.section
       id="projects"
       ref={ref}
-      className="max-w-[48rem] mx-auto mb-28 scroll-mt-28"
+      className="mx-auto mb-28 max-w-3xl scroll-mt-28"
       {...popUp}
     >
       <h1 className="section-title">My Projects</h1>
-      <section>
+      <section className="px-4">
         {projects.map((project, idx) => (
           <Project key={project.title} project={project} idx={idx} />
         ))}
