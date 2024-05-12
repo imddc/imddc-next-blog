@@ -1,21 +1,9 @@
 'use client'
 
-import { useEffect, useRef, type RefObject } from 'react'
+import { useEffect, type RefObject } from 'react'
 import { useSectionContext } from '~/context/section-context'
+import { useThrottleFn } from '~/hooks/useThrottle'
 import { links } from '~/lib/data'
-
-const useThrottleFn = (fn: (...args: any[]) => void, delay: number) => {
-  const timer = useRef<NodeJS.Timeout | null>(null)
-  return (...args: any[]) => {
-    if (timer.current) {
-      return
-    }
-    timer.current = setTimeout(() => {
-      fn(...args)
-      timer.current = null
-    }, delay)
-  }
-}
 
 export const useSetHeaderInView = (
   ref: RefObject<HTMLDivElement>,
@@ -34,8 +22,6 @@ export const useSetHeaderInView = (
         // too soon
         return
       }
-
-      console.log('jonh')
 
       sectionDispatchContext.setLink(section)
     }
