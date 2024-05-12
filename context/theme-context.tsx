@@ -2,7 +2,11 @@
 
 import React, { createContext, useContext, useReducer } from 'react'
 
-type Theme = 'light' | 'dark'
+const LOCAL_KEY = '_imddc-theme'
+export enum Theme {
+  light = 'theme-light',
+  dark = 'theme-dark'
+}
 type ThemeContext = {
   theme: Theme
 }
@@ -19,13 +23,19 @@ const ThemeDispatchContext = createContext<ThemeDispatchContext | null>(null)
 const themeReducer: React.Reducer<Theme, ThemeAction> = (theme, action) => {
   switch (action.type) {
     case 'toggle': {
-      const isDark = theme === 'dark'
+      const isDark = theme === Theme.dark
+
+      console.log(isDark, theme)
       if (isDark) {
-        document.documentElement.classList.remove('dark')
-        return 'light'
+        document.documentElement.classList.remove(Theme.dark)
+        document.documentElement.classList.add(Theme.light)
+        localStorage.setItem(LOCAL_KEY, JSON.stringify(Theme.light))
+        return Theme.light
       } else {
-        document.documentElement.classList.add('dark')
-        return 'dark'
+        document.documentElement.classList.remove(Theme.light)
+        document.documentElement.classList.add(Theme.dark)
+        localStorage.setItem(LOCAL_KEY, JSON.stringify(Theme.dark))
+        return Theme.dark
       }
     }
     default: {
@@ -35,7 +45,12 @@ const themeReducer: React.Reducer<Theme, ThemeAction> = (theme, action) => {
 }
 
 export const ThemeContextProvider = ({ children }: React.PropsWithChildren) => {
-  const [theme, dispatch] = useReducer(themeReducer, 'light')
+  let localTheme = localStorage.getItem(LOCAL_KEY) as Theme
+  if (!localTheme) {
+    localStorage.setItem(LOCAL_KEY, JSON.stringify(Theme.light))
+    localTheme = Theme.light
+  }
+  const [theme, dispatch] = useReducer(themeReducer, localTheme)
 
   return (
     <ThemeContext.Provider value={{ theme }}>

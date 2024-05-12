@@ -56,11 +56,7 @@ const Posts = () => {
                 className="h-1 w-1/3"
               ></div>
               {post.tags.map((tag) => (
-                <Link
-                  href={'*'}
-                  key={tag}
-                  className="mr-2 text-sm"
-                >
+                <Link href={'*'} key={tag} className="mr-2 text-sm">
                   #
                   <span className="hover:underline hover:text-gray-500 duration-300">
                     {tag}
@@ -85,7 +81,7 @@ const Posts = () => {
         </motion.div>
       </div>
 
-      <span className="absolute w-full inset-0 pointer-events-none bg-gradient-to-r from-gray-50 md:from-10% via-transparent to-gray-50 md:to-90%"></span>
+      <span className="absolute w-full inset-0 pointer-events-none bg-gradient-to-r from-gray-50 md:from-5% via-transparent to-gray-50 md:to-95% dark:bg-gray-50/50" />
     </motion.section>
   )
 }

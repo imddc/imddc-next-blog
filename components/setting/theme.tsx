@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaMoon, FaSun } from 'react-icons/fa'
-import { useThemeContext } from '~/context/theme-context'
+import { Theme, useThemeContext } from '~/context/theme-context'
 
 const SettingTheme = () => {
   const { themeDispatchContext, themeContext } = useThemeContext()
@@ -17,7 +17,7 @@ const SettingTheme = () => {
         className="flex-center size-10 bg-gray-500/50 hover:bg-gray-400/50 rounded-md duration-300"
         onClick={handleToggleDarkMode}
       >
-        {themeContext.theme === 'dark' ? (
+        {themeContext.theme === Theme.dark ? (
           <FaSun size={20} />
         ) : (
           <FaMoon size={20} />

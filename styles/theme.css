@@ -1,0 +1,21 @@
+.theme-light {
+  --bg-color: #fafafa;
+  --text-color: #000;
+  --text-color-secondary: #333;
+  --text-color-tertiary: #666;
+  --text-color-quaternary: #999;
+  --text-color-quinary: #ccc;
+  --text-color-senary: #eee;
+  --text-color-septenary: #fff;
+}
+
+.theme-dark {
+  --bg-color: #000;
+  --text-color: #fff;
+  --text-color-secondary: #333;
+  --text-color-tertiary: #666;
+  --text-color-quaternary: #999;
+  --text-color-quinary: #ccc;
+  --text-color-senary: #eee;
+  --text-color-septenary: #fff;
+}
