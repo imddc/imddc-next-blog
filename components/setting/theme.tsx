@@ -7,7 +7,7 @@ const SettingTheme = () => {
 
   function handleToggleDarkMode() {
     themeDispatchContext.dispatch({
-      type: 'toggle'
+      type: themeContext.theme === Theme.dark ? 'setLight' : 'setDark'
     })
   }
 

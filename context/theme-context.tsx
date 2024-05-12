@@ -1,12 +1,13 @@
 'use client'
 
-import React, { createContext, useContext, useReducer } from 'react'
+import React, { createContext, useContext, useEffect, useReducer } from 'react'
 
-const LOCAL_KEY = '_imddc-theme'
+export const LOCAL_KEY = '_imddc-theme'
 export enum Theme {
   light = 'theme-light',
   dark = 'theme-dark'
 }
+
 type ThemeContext = {
   theme: Theme
 }
@@ -14,29 +15,27 @@ type ThemeDispatchContext = {
   dispatch: React.Dispatch<ThemeAction>
 }
 type ThemeAction = {
-  type: 'toggle'
+  type: 'setDark' | 'setLight'
 }
 
 const ThemeContext = createContext<ThemeContext | null>(null)
 const ThemeDispatchContext = createContext<ThemeDispatchContext | null>(null)
 
+function setLocalTheme(theme: Theme) {
+  document.documentElement.classList.remove(Theme.light, Theme.dark)
+  document.documentElement.classList.add(theme)
+  localStorage.setItem(LOCAL_KEY, JSON.stringify(theme))
+}
+
 const themeReducer: React.Reducer<Theme, ThemeAction> = (theme, action) => {
   switch (action.type) {
-    case 'toggle': {
-      const isDark = theme === Theme.dark
-
-      console.log(isDark, theme)
-      if (isDark) {
-        document.documentElement.classList.remove(Theme.dark)
-        document.documentElement.classList.add(Theme.light)
-        localStorage.setItem(LOCAL_KEY, JSON.stringify(Theme.light))
-        return Theme.light
-      } else {
-        document.documentElement.classList.remove(Theme.light)
-        document.documentElement.classList.add(Theme.dark)
-        localStorage.setItem(LOCAL_KEY, JSON.stringify(Theme.dark))
-        return Theme.dark
-      }
+    case 'setLight': {
+      setLocalTheme(Theme.light)
+      return Theme.light
+    }
+    case 'setDark': {
+      setLocalTheme(Theme.dark)
+      return Theme.dark
     }
     default: {
       throw Error('Unknown action: ' + action.type)
@@ -45,12 +44,19 @@ const themeReducer: React.Reducer<Theme, ThemeAction> = (theme, action) => {
 }
 
 export const ThemeContextProvider = ({ children }: React.PropsWithChildren) => {
-  let localTheme = localStorage.getItem(LOCAL_KEY) as Theme
-  if (!localTheme) {
-    localStorage.setItem(LOCAL_KEY, JSON.stringify(Theme.light))
-    localTheme = Theme.light
-  }
-  const [theme, dispatch] = useReducer(themeReducer, localTheme)
+  const [theme, dispatch] = useReducer(themeReducer, Theme.light)
+
+  useEffect(() => {
+    let localTheme = window.localStorage.getItem(LOCAL_KEY) as Theme
+    if (localTheme) {
+      const isDark = JSON.parse(localTheme) === Theme.dark
+      dispatch({ type: isDark ? 'setDark' : 'setLight' })
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      dispatch({ type: 'setDark' })
+    } else {
+      dispatch({ type: 'setLight' })
+    }
+  }, [theme])
 
   return (
     <ThemeContext.Provider value={{ theme }}>
