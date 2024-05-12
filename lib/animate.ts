@@ -1,10 +1,10 @@
 import { AnimationProps, MotionProps } from 'framer-motion'
 
-export const headerBack: MotionProps = {
+export const headerBackgroundPopDown: MotionProps = {
   initial: { y: -100, x: '-50%', opacity: 0 },
   animate: { y: 0, x: '-50%', opacity: 1 }
 }
-export const headerActive = (layoutId: string): MotionProps => ({
+export const headerActiveSection = (layoutId: string): MotionProps => ({
   layoutId,
   transition: {
     type: 'spring',

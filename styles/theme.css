@@ -1,5 +1,5 @@
 .theme-light {
-  --bg-color: #fafafa;
+  --bg-color: hsl(var(--background));
   --text-color: #000;
   --text-color-secondary: #333;
   --text-color-tertiary: #666;
