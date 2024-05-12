@@ -21,7 +21,7 @@ const createPost = (id: number) => {
         link: 'tag link'
       },
       {
-        name: 'tag' + id,
+        name: 'tag2' + id,
         link: 'tag link'
       }
     ]
