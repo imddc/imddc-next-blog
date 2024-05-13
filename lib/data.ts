@@ -85,3 +85,27 @@ export const postType = [
   'git',
   'other'
 ] as const
+
+const createPost = (id: number) => {
+  return {
+    id: id,
+    title: 'title' + id,
+    description:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit fugit quaerat cum, unde fuga suscipit repellat, velit in quas nesciunt minima asperiores, ex aspernatur neque ratione eaque culpa est obcaecati.' +
+      id,
+    color: '#f86',
+    link: '/post/' + id,
+    tags: [
+      {
+        name: 'tag' + id,
+        link: 'tag link'
+      },
+      {
+        name: 'tag2' + id,
+        link: 'tag link'
+      }
+    ]
+  }
+}
+
+export const posts = Array.from({ length: 9 }).map((_, i) => createPost(i))

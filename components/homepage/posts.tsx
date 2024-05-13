@@ -5,30 +5,7 @@ import React, { useRef } from 'react'
 import Post from '~/components/Post'
 import { useSetHeaderInView } from '~/hooks/useSetHeaderInView'
 import { popUp } from '~/lib/animate'
-
-const createPost = (id: number) => {
-  return {
-    id: id,
-    title: 'title' + id,
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit fugit quaerat cum, unde fuga suscipit repellat, velit in quas nesciunt minima asperiores, ex aspernatur neque ratione eaque culpa est obcaecati.' +
-      id,
-    color: '#f86',
-    link: '/post/' + id,
-    tags: [
-      {
-        name: 'tag' + id,
-        link: 'tag link'
-      },
-      {
-        name: 'tag2' + id,
-        link: 'tag link'
-      }
-    ]
-  }
-}
-
-const posts = Array.from({ length: 9 }).map((_, i) => createPost(i))
+import { posts } from '~/lib/data'
 
 const Posts = () => {
   const ref = useRef(null)
