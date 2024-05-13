@@ -10,11 +10,10 @@ interface PostProp {
 const Post = ({ post }: PostProp) => {
   return (
     <div
-      key={post.id}
       className={clsx(
-        'group relative aspect-square flex-[12rem] shrink-0 rounded-md border border-gray-200 p-4 dark:border-gray-600/50 ',
-        'bg-gradient-to-b from-gray-200 to-gray-50 ',
-        'dark:from-gray-700/50 dark:to-gray-500/50'
+        'group relative aspect-square flex-[12rem] shrink-0 rounded-3xl border border-gray-300 p-4',
+        'bg-gradient-to-b from-gray-200/50 to-gray-50/50',
+        'dark:border-gray-600/50 dark:from-gray-700/50  dark:to-gray-500/50'
       )}
     >
       <h1 className="line-clamp-1">{post.title}</h1>
@@ -37,7 +36,7 @@ const Post = ({ post }: PostProp) => {
         href={post.link}
         className="absolute bottom-0 right-3 opacity-0 duration-700 group-hover:bottom-3 group-hover:opacity-100"
       >
-        <span className="rounded-full border border-gray-200/50 px-2 py-1 text-sm duration-700 hover:border-2">
+        <span className="bg:border-gray-700 rounded-full border border-gray-300 px-2 py-1 text-sm duration-700 hover:border-2">
           read more
         </span>
       </Link>

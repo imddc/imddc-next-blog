@@ -1,10 +1,11 @@
 'use client'
 
 import { clsx } from 'clsx'
+import { motion } from 'framer-motion'
 import React from 'react'
 import Post from '~/components/Post'
+import { popUp } from '~/lib/animate'
 import { posts, postType } from '~/lib/data'
-import { mergeCn } from '~/lib/utils'
 
 interface PostPageProps {
   searchParams: {
@@ -20,9 +21,9 @@ const PostPage = ({ searchParams }: PostPageProps) => {
   }
 
   return (
-    <main className="p-4 md:p-6 lg:p-8">
+    <motion.main className="p-4 md:p-6 lg:p-8" {...popUp}>
       <h1 className="mb-4 text-center text-4xl">
-        All Posts of {type || 'All'}
+        All Posts {type ? `of "${type}"` : ''}
       </h1>
 
       <div className="p-6">
@@ -41,7 +42,7 @@ const PostPage = ({ searchParams }: PostPageProps) => {
           ))}
         </div>
       </div>
-    </main>
+    </motion.main>
   )
 }
 
