@@ -5,17 +5,12 @@ import { type Post } from '~/lib/types'
 
 interface PostProp {
   post: Post
+  idx: number
 }
 
-const Post = ({ post }: PostProp) => {
+const Post = ({ post, idx }: PostProp) => {
   return (
-    <div
-      className={clsx(
-        'group relative aspect-square flex-[12rem] shrink-0 rounded-3xl border border-gray-300 p-4',
-        'bg-gradient-to-b from-gray-200/50 to-gray-50/50',
-        'dark:border-gray-600/50 dark:from-gray-700/50  dark:to-gray-500/50'
-      )}
-    >
+    <div className="post-card group relative" style={{ order: idx + 1 }}>
       <h1 className="line-clamp-1">{post.title}</h1>
       <div style={{ backgroundColor: post.color }} className="mb-1 h-1 w-1/3" />
 

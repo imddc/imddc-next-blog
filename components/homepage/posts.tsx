@@ -1,6 +1,8 @@
 'use client'
 
+import { clsx } from 'clsx'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import React, { useRef } from 'react'
 import Post from '~/components/Post'
 import { useSetHeaderInView } from '~/hooks/useSetHeaderInView'
@@ -29,18 +31,28 @@ const Posts = () => {
             power: 0.2
           }}
         >
-          {posts.map((post) => (
-            <Post post={post} key={post.id} />
+          {posts.map((post, idx) => (
+            <Post post={post} key={post.id} idx={idx} />
           ))}
+
+          <Link
+            href={'/post'}
+            className="post-card flex-center post-see-more cursor-pointer font-serif text-xl transition-colors duration-500"
+            style={{ order: Math.floor((posts.length + 1) / 2) }}
+          >
+            <span className="text-gray-50/60 mix-blend-difference">
+              See More
+            </span>
+          </Link>
         </motion.div>
       </div>
 
       <span
-        className={
-          'pointer-events-none absolute inset-0 w-full bg-gradient-to-r ' +
-          'from-gray-100/80 via-transparent to-gray-100/80 ' +
+        className={clsx(
+          'pointer-events-none absolute inset-0 w-full bg-gradient-to-r',
+          'from-gray-100/80 via-transparent to-gray-100/80',
           'dark:from-gray-900/80 dark:via-gray-900/10 dark:to-gray-900/80'
-        }
+        )}
       />
     </motion.section>
   )

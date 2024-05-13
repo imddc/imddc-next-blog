@@ -17,3 +17,31 @@
 .section-title {
   @apply text-3xl mb-10 text-center font-bold;
 }
+
+.post-card {
+  @apply aspect-square flex-[12rem] shrink-0 rounded-3xl border border-gray-300 p-4 dark:border-gray-600/50 dark:from-gray-700/50 dark:to-gray-500/50 bg-gradient-to-b from-gray-200/50 to-gray-50/50;
+}
+
+.post-see-more {
+  background-image: linear-gradient(45deg, #00d2ff, #e2e2e2);
+  background-size: 200%;
+  animation: bg-linear 4s infinite;
+  @apply duration-500 transition-all;
+
+  &:hover {
+    animation: bg-linear 3s infinite;
+    @apply shadow-lg -translate-y-3;
+  }
+}
+
+@keyframes bg-linear {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
