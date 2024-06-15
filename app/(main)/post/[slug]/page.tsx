@@ -1,5 +1,3 @@
-import React from 'react'
-
 interface PostSlugPageProps {
   params: { slug: string }
 }

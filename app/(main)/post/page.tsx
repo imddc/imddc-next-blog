@@ -2,7 +2,6 @@
 
 import { clsx } from 'clsx'
 import { motion } from 'framer-motion'
-import React from 'react'
 import Post from '~/components/Post'
 import { popUp } from '~/lib/animate'
 import { posts, postType } from '~/lib/data'
@@ -35,9 +34,9 @@ const PostPage = ({ searchParams }: PostPageProps) => {
             'lg:auto-rows-[220px] lg:grid-cols-[repeat(4,220px)] lg:gap-6 lg:p-8'
           )}
         >
-          {posts.map((post) => (
+          {posts.map((post, idx) => (
             <div key={post.id}>
-              <Post post={post}></Post>
+              <Post idx={idx} post={post}></Post>
             </div>
           ))}
         </div>
